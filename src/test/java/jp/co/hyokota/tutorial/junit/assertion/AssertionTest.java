@@ -7,10 +7,10 @@ import org.junit.Test;
 
 public class AssertionTest {
 
-	@Test
-	public void はじめてのあさーしょん(){
-		String actual = "";
-		actual = "Hello" + " " + "World!";
-		assertThat(actual, is("Hello World!"));
-	}
+    @Test
+    public void はじめてのあさーしょん() {
+        String actual = "";
+        actual = "Hello" + " " + "World!";
+        assertThat(actual, is("Hello World!"));
+    }
 }
