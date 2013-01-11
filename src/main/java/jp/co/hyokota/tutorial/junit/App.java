@@ -1,9 +1,6 @@
 package jp.co.hyokota.tutorial.junit;
 
-/**
- * Hello world!
- *
- */
+//FIXME: auto generate app
 public class App 
 {
     public static void main( String[] args )
