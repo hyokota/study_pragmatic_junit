@@ -3,8 +3,8 @@ package jp.co.hyokota.tutorial.junit.parameterize;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.DataPoints;
+import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
@@ -24,7 +24,7 @@ public class CalculatorDatePointsTest {
     public void addTest(Fixture p){
         Calculator calc = new Calculator();
         System.out.println(p);
-        assertThat(calc.add(p.x, p.y), is(p.expected));
+        assertThat(p.toString(), calc.add(p.x, p.y), is(p.expected));
     }
     
     static class Fixture{
