@@ -1,7 +1,7 @@
 package jp.co.hyokota.tutorial.junit.parameterize;
 
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.DataPoints;
