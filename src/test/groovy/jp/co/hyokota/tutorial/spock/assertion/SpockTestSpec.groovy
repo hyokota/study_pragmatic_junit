@@ -13,11 +13,9 @@ class SpockTestSpec extends Specification {
 
     def "Hello Test"() {
         when:
-
-        def str = "hello"
+            def str = "hello"
 
         then:
-
-        str == "hello"
+            str == "hello"
     }
 }
