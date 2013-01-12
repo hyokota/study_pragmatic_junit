@@ -1,0 +1,6 @@
+!!jp.co.hyokota.tutorial.junit.fixture.Book
+price: 4500
+title: Refactoring
+author: !!jp.co.hyokota.tutorial.junit.fixture.Author
+    firstName: Martin
+    lastName: Fowler
