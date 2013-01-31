@@ -31,13 +31,7 @@ public class RamdomsTest {
 
     @Theory
     public void choiceのテスト(final Fixture p) {
-        IRandomNumberGenerator generator_1 = new IRandomNumberGenerator() {
-            @Override
-            public int nextInt() {
-                return p.idx;
-            }
-        };
-        sut.setGenerator(generator_1);
+        sut.setGenerator(new RandomNumberGeneratorStub(p.idx));
         System.out.println(p);
         assertThat(p.toString(), sut.choice(options), is(p.expected));
     }
