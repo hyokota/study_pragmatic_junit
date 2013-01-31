@@ -16,14 +16,15 @@ import org.junit.runner.RunWith;
 public class RamdomsTest {
     @DataPoints
     public static final Fixture[] PARAMs = { new Fixture(0, "A"),
-            new Fixture(1, "B"), };
+            new Fixture(1, "B"), new Fixture(2, "C"), new Fixture(3, "D"),
+            new Fixture(4, "E"), new Fixture(5, "A") };
 
     private List<String> options;
     private Randoms sut;
 
     @Before
     public void setUp() {
-        String[] optionsStr = { "A", "B" };
+        String[] optionsStr = { "A", "B", "C", "D", "E" };
         this.options = Arrays.asList(optionsStr);
         this.sut = new Randoms();
     }
