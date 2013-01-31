@@ -7,7 +7,6 @@ public class RandomNumberGeneratorStub implements IRandomNumberGenerator {
         this.idx = idx;
     }
 
-    @Override
     public int nextInt() {
         return this.idx;
     }
