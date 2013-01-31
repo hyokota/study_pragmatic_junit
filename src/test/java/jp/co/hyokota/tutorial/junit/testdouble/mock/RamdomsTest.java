@@ -7,41 +7,53 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.experimental.theories.DataPoints;
+import org.junit.experimental.theories.Theories;
+import org.junit.experimental.theories.Theory;
+import org.junit.runner.RunWith;
 
+@RunWith(Theories.class)
 public class RamdomsTest {
+    @DataPoints
+    public static final Fixture[] PARAMs = { new Fixture(0, "A"),
+            new Fixture(1, "B"), };
 
     private List<String> options;
     private Randoms sut;
 
     @Before
     public void setUp() {
-        String[] optionsStr = {"A", "B"};
+        String[] optionsStr = { "A", "B" };
         this.options = Arrays.asList(optionsStr);
         this.sut = new Randoms();
     }
 
-    @Test
-    public void choiceでAを返す() {
+    @Theory
+    public void choiceのテスト(final Fixture p) {
         IRandomNumberGenerator generator_1 = new IRandomNumberGenerator() {
             @Override
             public int nextInt() {
-                return 0;
+                return p.idx;
             }
         };
         sut.setGenerator(generator_1);
-        assertThat(sut.choice(options), is("A"));
+        System.out.println(p);
+        assertThat(p.toString(), sut.choice(options), is(p.expected));
     }
 
-    @Test
-    public void choiceでBを返す() {
-        IRandomNumberGenerator generator_1 = new IRandomNumberGenerator() {
-            @Override
-            public int nextInt() {
-                return 1;
-            }
-        };
-        sut.setGenerator(generator_1);
-        assertThat(sut.choice(options), is("B"));
+    static class Fixture {
+        int idx;
+        String expected;
+
+        Fixture(int idx, String expected) {
+            this.idx = idx;
+            this.expected = expected;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("idx: %d, expected: %s", this.idx,
+                    this.expected);
+        }
     }
 }
