@@ -6,18 +6,24 @@ import static org.hamcrest.CoreMatchers.*;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class RamdomsTest {
+
+    private List<String> options;
+    private Randoms sut;
+
+    @Before
+    public void setUp() {
+        String[] optionsStr = {"A", "B"};
+        this.options = Arrays.asList(optionsStr);
+        this.sut = new Randoms();
+    }
+
     @Test
     public void choiceでAを返す() {
-        List<String> options;
-        {
-            String[] optionsStr = {"A", "B"};
-            options = Arrays.asList(optionsStr);
-        }
-        Randoms sut = new Randoms();
-        IRandomNumberGenerator generator_1 = new IRandomNumberGenerator(){
+        IRandomNumberGenerator generator_1 = new IRandomNumberGenerator() {
             @Override
             public int nextInt() {
                 return 0;
@@ -26,15 +32,10 @@ public class RamdomsTest {
         sut.setGenerator(generator_1);
         assertThat(sut.choice(options), is("A"));
     }
+
     @Test
     public void choiceでBを返す() {
-        List<String> options;
-        {
-            String[] optionsStr = {"A", "B"};
-            options = Arrays.asList(optionsStr);
-        }
-        Randoms sut = new Randoms();
-        IRandomNumberGenerator generator_1 = new IRandomNumberGenerator(){
+        IRandomNumberGenerator generator_1 = new IRandomNumberGenerator() {
             @Override
             public int nextInt() {
                 return 1;
