@@ -40,6 +40,7 @@ public class RamdomsTest {
         sut.setGenerator(generatorMock);
         System.out.println(p);
         assertThat(p.toString(), sut.choice(options), is(p.expected));
+        verify(generatorMock).nextInt();
     }
 
     static class Fixture {
