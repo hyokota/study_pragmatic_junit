@@ -3,7 +3,7 @@ package jp.co.hyokota.tutorial.junit.testdouble.spy;
 import java.util.logging.Logger;
 
 public class SpyExample {
-    Logger logger;
+    public Logger logger;
     
     public SpyExample(){
         logger = Logger.getLogger(SpyExample.class.getName());        
