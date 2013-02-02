@@ -1,4 +1,4 @@
-package jp.co.hyokota.tutorial.junit.testdouble.mock;
+package jp.co.hyokota.tutorial.junit.testdouble.stub;
 
 public class RandomNumberGeneratorStub implements IRandomNumberGenerator {
     private int idx;

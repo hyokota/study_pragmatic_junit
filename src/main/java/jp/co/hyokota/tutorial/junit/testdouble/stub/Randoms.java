@@ -1,4 +1,4 @@
-package jp.co.hyokota.tutorial.junit.testdouble.mock;
+package jp.co.hyokota.tutorial.junit.testdouble.stub;
 
 import java.util.List;
 
