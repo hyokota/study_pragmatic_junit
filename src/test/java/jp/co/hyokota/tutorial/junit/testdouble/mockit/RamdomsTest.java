@@ -9,6 +9,7 @@ import java.util.List;
 import jp.co.hyokota.tutorial.junit.testdouble.stub.IRandomNumberGenerator;
 import jp.co.hyokota.tutorial.junit.testdouble.stub.Randoms;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
@@ -25,22 +26,27 @@ public class RamdomsTest {
 
     private List<String> options;
     private Randoms sut;
+    private IRandomNumberGenerator generatorMock;
 
     @Before
     public void setUp() {
         String[] optionsStr = { "A", "B", "C", "D", "E" };
         this.options = Arrays.asList(optionsStr);
         this.sut = new Randoms();
+        this.generatorMock = mock(IRandomNumberGenerator.class);
+        this.sut.setGenerator(generatorMock);
+    }
+    
+    @After
+    public void tearDown(){
+        verify(this.generatorMock).nextInt();
     }
 
     @Theory
     public void choiceのテスト(final Fixture p) {
-        IRandomNumberGenerator generatorMock = mock(IRandomNumberGenerator.class);
-        when(generatorMock.nextInt()).thenReturn(p.idx);
-        sut.setGenerator(generatorMock);
         System.out.println(p);
+        when(generatorMock.nextInt()).thenReturn(p.idx);
         assertThat(p.toString(), sut.choice(options), is(p.expected));
-        verify(generatorMock).nextInt();
     }
 
     static class Fixture {
