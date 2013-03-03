@@ -22,5 +22,7 @@ class SpockTestSpec extends Specification {
         where:
             name | message
             "spock" | "hello spock"
+            "groovy" | "hello groovy"
+            "hoge" | "hello hoge"
     }
 }
