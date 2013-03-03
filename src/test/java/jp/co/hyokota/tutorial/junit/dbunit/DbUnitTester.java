@@ -32,7 +32,6 @@ public abstract class DbUnitTester extends AbstractDatabaseTester implements
     public DbUnitTester(String driverClass, String connectionUrl,
             String username, String password, String schema) {
         super(schema);
-        System.out.println(driverClass);
         this.connectionUrl = connectionUrl;
         this.username = username;
         this.password = password;

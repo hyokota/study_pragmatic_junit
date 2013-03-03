@@ -101,7 +101,7 @@ public class UserDaoTest {
 
     static class H2UtDatabaseServer extends H2DatabaseServer {
         public H2UtDatabaseServer() {
-            super("h2", "db", "ut");
+            super("target/h2", "db", "ut");
         }
     }
 
