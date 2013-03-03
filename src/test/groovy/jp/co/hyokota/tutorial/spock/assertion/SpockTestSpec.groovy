@@ -13,9 +13,10 @@ class SpockTestSpec extends Specification {
 
     def "Hello Test"() {
         when:
-            def str = "hello"
+            def sut = new HelloSpock()
+            def actual = sut.hello()
 
         then:
-            str == "hello"
+            actual == "hello spock"
     }
 }
