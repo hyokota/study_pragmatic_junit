@@ -14,11 +14,11 @@ public class Card {
         this.no = no;
     }
 
-    public static Card get(char suit, int no) {
+    public static Card get(String suit, int no) {
         if (no < 1 || 13 < no) {
             throw new IllegalArgumentException();
         }
-        switch (suit) {
+        switch (getChar(suit)) {
         case 'D':
             return new Card(Suit.DIAMONDS, no);
         case 'S':
@@ -30,6 +30,10 @@ public class Card {
         default:
             throw new IllegalArgumentException();
         }
+    }
+
+    private static char getChar(String suit) {
+        return suit.charAt(0);
     }
 
     @Override

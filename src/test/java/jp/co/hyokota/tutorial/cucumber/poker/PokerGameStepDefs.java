@@ -16,8 +16,8 @@ public class PokerGameStepDefs {
     PokerGame sut;
 
     @前提("^手札に([SHDC])(\\d+),([SHDC])(\\d+),([SHDC])(\\d+),([SHDC])(\\d+),([SHDC])(\\d+)が配られた$")
-    public void 手札にカードが配られた(char suit1, int no1, char suit2, int no2,
-            char suit3, int no3, char suit4, int no4, char suit5, int no5)
+    public void 手札にカードが配られた(String suit1, int no1, String suit2, int no2,
+            String suit3, int no3, String suit4, int no4, String suit5, int no5)
             throws Throwable {
         sut = new PokerGame();
         sut.setUp(
